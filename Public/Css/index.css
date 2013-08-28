@@ -1,0 +1,10 @@
+@charset "utf-8";
+body {
+    background: #f6f6f6;
+    margin: 0 auto;
+}
+#theme {
+    position: absolute;
+    left: 50%;
+    margin-left: -240px;
+}
