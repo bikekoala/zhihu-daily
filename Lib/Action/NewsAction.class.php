@@ -29,6 +29,7 @@ class NewsAction extends AbstractAction
     public function latest()
     {
         $list = $this->curl($this->_apiLatest);
+        $list = $this->_replaceImageUrl($list);
         $stat = isset($list);
         $msg = '今天的新闻列表';
         $this->ajaxReturn($list, $msg, $stat);
@@ -44,11 +45,32 @@ class NewsAction extends AbstractAction
     public function before($date)
     {
         if (8 !== strlen((int) $date)) {
-            $this->ajaxReturn(null, '无效的查询时间按', false);
+            $this->ajaxReturn(null, '无效的查询时间', false);
         }
         $list = $this->curl($this->_apiBefore . '/' . $date);
+        $list = $this->_replaceImageUrl($list);
         $stat = isset($list);
         $msg = '之前的新闻列表';
         $this->ajaxReturn($list, $msg, $stat);
+    }
+
+    /**
+     * _replaceImageUrl
+     * 替换图片地址
+     *
+     * @param array $list
+     * @return array
+     */
+    private function _replaceImageUrl($list)
+    {
+        $api = C('IMAGE_PROXY_API');
+        foreach ($list as $cate => &$data) {
+            if ('news' === $cate) {
+                foreach ($data as &$news) {
+                    $news['thumbnail'] =  $api . '?url=' . $news['thumbnail'];
+                }
+            }
+        }
+        return $list;
     }
 }
