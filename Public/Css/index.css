@@ -3,8 +3,16 @@ body {
     background: #f6f6f6;
     margin: 0 auto;
 }
-#theme {
-    position: absolute;
-    left: 50%;
-    margin-left: -240px;
+@media screen and (min-width:480px){
+    #theme {
+        position: absolute;
+        left: 50%;
+        margin-left: -240px;
+    }
+}
+
+@media screen and (max-width:479px){
+    #theme {
+        width: auto;
+    }
 }
