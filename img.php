@@ -9,8 +9,9 @@ $referer = $urlInfo['scheme'] . '://' . $urlInfo['host'] . '/';
 // Create a stream
 $opts = array(
     'http'=>array(
-        'method' => 'GET',
-        'header' => 
+        'method'  => 'GET',
+        'timeout' => 30,
+        'header'  => 
             "referer:{$referer}\r\n" .
             "User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36"
     )
