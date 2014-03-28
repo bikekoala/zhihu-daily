@@ -3,6 +3,9 @@ if (empty($_GET['url'])) {
     exit('Invalid url.');
 }
 $url = trim($_GET['url']);
+if ('http' !== substr($url, 0, 4)) {
+    $url = 'http://' . $url;
+}
 $urlInfo = parse_url($url);
 $referer = $urlInfo['scheme'] . '://' . $urlInfo['host'] . '/';
 

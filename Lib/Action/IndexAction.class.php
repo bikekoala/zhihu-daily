@@ -32,7 +32,7 @@ class IndexAction extends AbstractAction
      */
     private function _replaceImageUrl($info)
     {
-        $info['img'] = C('IMAGE_PROXY_API') . '?url=' . $info['img'];
+        $info['img'] = C('IMAGE_PROXY_API') . str_replace('http://', '', $info['img']);
         return $info;
     }
 }

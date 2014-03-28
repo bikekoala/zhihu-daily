@@ -67,7 +67,7 @@ class NewsAction extends AbstractAction
         foreach ($list as $cate => &$data) {
             if ('news' === $cate) {
                 foreach ($data as &$news) {
-                    $news['thumbnail'] =  $api . '?url=' . $news['thumbnail'];
+                    $news['thumbnail'] =  $api . str_replace('http://', '', $news['thumbnail']);
                 }
             }
         }
