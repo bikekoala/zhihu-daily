@@ -1,6 +1,6 @@
 <?PHP
 if (empty($_GET['url'])) {
-    exit('Invalid url.');
+    output_404();
 }
 $url = trim($_GET['url']);
 if ('http' !== substr($url, 0, 4)) {
@@ -23,8 +23,20 @@ $ctx = stream_context_create($opts);
 // Open the file using the HTTP headers set above
 $file = file_get_contents($url, false, $ctx);
 if ( ! $file) {
-    exit('can not get image.');
+    output_404();
 }
 // output
-header('Content-type: image/jpeg');
-exit($file);
+output_image();
+
+// output image header
+function output_image() {
+    header('Content-type: image/jpeg');
+    exit($file);
+}
+
+// output not found header
+function output_404() {
+    header('HTTP/1.1 404 Not Found');
+    header('Status: 404 Not Found');
+    exit;
+}
