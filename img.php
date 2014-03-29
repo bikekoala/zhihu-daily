@@ -22,14 +22,14 @@ $opts = array(
 $ctx = stream_context_create($opts);
 // Open the file using the HTTP headers set above
 $file = file_get_contents($url, false, $ctx);
+// output
 if ( ! $file) {
     output_404();
 }
-// output
-output_image();
+output_image($file);
 
 // output image header
-function output_image() {
+function output_image($file) {
     header('Content-type: image/jpeg');
     exit($file);
 }
