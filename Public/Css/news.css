@@ -1,5 +1,23 @@
 @charset "utf-8";
 @media screen and (min-width:600px){
+    .button {
+        width: 75px !important;
+    }
+    .rss {
+        float: right;
+    }
+    .rss i {
+        background-image: url('../Images/rss.png');
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+
+        background-position: 0px -5px;
+        width: 26px;
+        height: 26px;
+    }
+    .sprite-ico-Button_rss {
+    }
     #news h3 {
         margin: 1px 0 0 0;
         height: 60px;

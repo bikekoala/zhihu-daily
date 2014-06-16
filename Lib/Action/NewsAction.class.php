@@ -7,8 +7,8 @@
  */
 class NewsAction extends AbstractAction
 {
-    private $_apiLatest = 'http://news.at.zhihu.com/api/1.1/news/latest';
-    private $_apiBefore = 'http://news.at.zhihu.com/api/1.1/news/before';
+    protected $_apiLatest = 'http://news.at.zhihu.com/api/1.1/news/latest';
+    protected $_apiBefore = 'http://news.at.zhihu.com/api/1.1/news/before';
 
     /**
      * index
@@ -61,7 +61,7 @@ class NewsAction extends AbstractAction
      * @param array $list
      * @return array
      */
-    private function _replaceImageUrl($list)
+    protected function _replaceImageUrl($list)
     {
         $api = C('IMAGE_PROXY_API');
         foreach ($list as $cate => &$data) {
