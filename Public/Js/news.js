@@ -10,6 +10,7 @@ $(function(){
         $.each(result.data.news, function(index, value) {
             show_news(value.title, value.thumbnail, value.id); // 展示新闻列表
         });
+        $(window).trigger('scroll');
     });
 
     // 自动加载
