@@ -7,8 +7,8 @@
  */
 class NewsAction extends AbstractAction
 {
-    protected $_apiLatest = 'http://news.at.zhihu.com/api/1.1/news/latest';
-    protected $_apiBefore = 'http://news.at.zhihu.com/api/1.1/news/before';
+    protected $_apiLatest = 'http://news-at.zhihu.com/api/4/stories/latest';
+    protected $_apiBefore = 'http://news-at.zhihu.com/api/4/stories/before';
 
     /**
      * index
@@ -30,9 +30,8 @@ class NewsAction extends AbstractAction
     {
         $list = $this->curl($this->_apiLatest);
         $list = $this->_replaceImageUrl($list);
-        $stat = isset($list);
-        $msg = '今天的新闻列表';
-        $this->ajaxReturn($list, $msg, $stat);
+
+        $this->ajaxReturn($list, '今天的新闻列表', isset($list));
     }
 
     /**
@@ -49,9 +48,8 @@ class NewsAction extends AbstractAction
         }
         $list = $this->curl($this->_apiBefore . '/' . $date);
         $list = $this->_replaceImageUrl($list);
-        $stat = isset($list);
-        $msg = '之前的新闻列表';
-        $this->ajaxReturn($list, $msg, $stat);
+
+        $this->ajaxReturn($list, '之前的新闻列表', isset($list));
     }
 
     /**
@@ -65,9 +63,9 @@ class NewsAction extends AbstractAction
     {
         $api = C('IMAGE_PROXY_API');
         foreach ($list as $cate => &$data) {
-            if ('news' === $cate) {
+            if ('stories' === $cate) {
                 foreach ($data as &$news) {
-                    $news['thumbnail'] =  $api . str_replace('http://', '', $news['thumbnail']);
+                    $news['thumbnail'] =  $api . str_replace('http://', '', $news['images'][0]);
                 }
             }
         }
