@@ -10,7 +10,7 @@ namespace Controller;
 class News extends Abstr
 {
     protected $apiLatest = 'http://news-at.zhihu.com/api/4/stories/latest';
-    protected $apiBefore = 'http://news-at.zhihu.com/api/4/stories/beforek';
+    protected $apiBefore = 'http://news-at.zhihu.com/api/4/stories/before';
 
     /**
      * index
