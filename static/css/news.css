@@ -7,7 +7,7 @@
         float: right;
     }
     .rss i {
-        background-image: url('../Images/rss.png');
+        background-image: url('../images/rss.png');
         background-repeat: no-repeat;
         display: inline-block;
         vertical-align: middle;
@@ -55,7 +55,7 @@
         float: left;
         width:120px;
         height: 120px;
-        background: #f7f7f7 url(../Images/thumb-default.png) no-repeat center center;
+        background: #f7f7f7 url(../images/thumb-default.png) no-repeat center center;
     }
     #news a img {
         width: 100%;
@@ -120,7 +120,7 @@
         float: left;
         height: 100%;
         width: 95px;
-        background: #f7f7f7 url(../Images/thumb-default.png) no-repeat center center;
+        background: #f7f7f7 url(../images/thumb-default.png) no-repeat center center;
     }
     #news a span {
         display: block;

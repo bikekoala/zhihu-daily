@@ -7,10 +7,10 @@
         <meta name="apple-itunes-app" content="app-id=639087967">
         <meta http-equiv="refresh" content="3;url=/news">
         <title>知乎日报 - 满足你的好奇心</title>
-        <link rel="stylesheet" href="Public/Css/index.css">
+        <link rel="stylesheet" href="static/css/index.css">
         <link rel="shortcut icon" href="http://daily.zhihu.com/favicon.ico" />
     </head>
     <body>
-        <img id="theme" title="{$start.text}" src="{$start.img}"/>
+        <img id="theme" title="<?=$this->e($title)?>" src="<?=$this->e($img)?>"/>
     </body>
 </html>

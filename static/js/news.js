@@ -1,7 +1,7 @@
 $(function(){
     // 新闻列表api
-    var api_latest = '/news/latest';
-    var api_before = '/news/before';
+    var api_latest = '/?c=news&a=latest';
+    var api_before = '/?c=news&a=before';
 
     // 预加载
     $.getJSON(api_latest, function(result) {
@@ -20,7 +20,7 @@ $(function(){
 			if (1 == hasLoad) return false;
             $('#loading').show(); // 显示正在加载图片
             var curdate = $('#news').attr('curdate');
-            var api = api_before + '/date/' + curdate;
+            var api = api_before + '&date=' + curdate;
             $.ajax({
                 url: api,
                 async: true,
