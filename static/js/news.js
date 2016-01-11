@@ -45,7 +45,7 @@ $(function(){
 function get_date_str(date_num, need_week) {
     var date_arr = date_num.match(/^ *(\d{4})(\d{1,2})(\d{1,2}) *$/);  
     var date = new Date(parseInt(date_arr[1]), parseInt(date_arr[2]) -1, (date_arr[3]));
-    var date_str = date.getFullYear() + '.' + date.getMonth() + '.' + date.getDate();
+    var date_str = date.getFullYear() + '.' + date.getMonth() + 1 + '.' + date.getDate();
 
     if (need_week) {
         date_str += ' 星期' + ['日', '一', '二', '三', '四', '五', '六'][date.getDay()];
