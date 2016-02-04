@@ -32,8 +32,7 @@ class Index extends Abstr
      */
     private function replaceImageUrl($info)
     {
-        $info['img'] = CONFIG['IMAGE_PROXY_API'] .
-            str_replace('http://', '', $info['img']);
+        $info['img'] = get_image_proxy_url($info['img']);
 
         return $info;
     }

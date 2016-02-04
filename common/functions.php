@@ -38,3 +38,17 @@ function autoload(string $class_name)
         }
     }
 }
+
+/**
+ * 获得代理图片的URL
+ *
+ * @param string $url
+ * @return string
+ */
+function get_image_proxy_url($url)
+{
+    $api = CONFIG['IMAGE_PROXY_API'];
+    $url = preg_replace('/(http|https):\/\//', '', $url);
+
+    return $api . $url;
+}

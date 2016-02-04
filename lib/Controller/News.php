@@ -65,8 +65,7 @@ class News extends Abstr
         foreach ($list as $cate => &$data) {
             if ('stories' === $cate) {
                 foreach ($data as &$news) {
-                    $news['thumbnail'] =  CONFIG['IMAGE_PROXY_API'] .
-                        str_replace('http://', '', $news['images'][0]);
+                    $news['thumbnail'] = get_image_proxy_url($news['images'][0]);
                 }
             }
         }
