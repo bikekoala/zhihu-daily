@@ -17,7 +17,7 @@ $(function(){
 	var hasLoad = 0;
     $(window).scroll(function() {
         if ($(document).scrollTop() >= $(document).height() - $(window).height() - 100) {
-			if (1 == hasLoad) return false;
+            if (1 == hasLoad) return false;
             $('#loading').show(); // 显示正在加载图片
             var curdate = $('#news').attr('curdate');
             var api = api_before + '&date=' + curdate;
@@ -32,11 +32,11 @@ $(function(){
                     $.each(result.data.stories, function(index, value) {
                         show_news(value.title, value.thumbnail, value.id);
                     });
-					hasLoad = 0;
+                    hasLoad = 0;
                 },
-				beforeSend : function(result) {
-					hasLoad = 1;
-				},
+                beforeSend : function(result) {
+                    hasLoad = 1;
+                },
             });
         }
     });
