@@ -1,7 +1,7 @@
 @charset "utf-8";
 @media screen and (min-width:600px){
     .button {
-        width: 75px !important;
+        width: 80px !important;
     }
     .rss {
         float: right;
@@ -16,7 +16,8 @@
         width: 26px;
         height: 26px;
     }
-    .sprite-ico-Button_rss {
+    .rss span {
+        vertical-align: 0;
     }
     #news h3 {
         margin: 1px 0 0 0;
